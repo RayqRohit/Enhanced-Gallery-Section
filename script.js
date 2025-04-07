@@ -8,21 +8,76 @@ const nextBtn = document.getElementById('nextBtn');
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
 
+
 const imageSources = [];
 for (let i = 1; i <= 30; i++) {
     imageSources.push(`https://picsum.photos/id/${i + 10}/900/900`);
 }
 
+function showSkeletons(count = 30) {
+    galleryContainer.innerHTML = "";
+    for (let i = 0; i < count; i++) {
+        const skeleton = document.createElement('div');
+        skeleton.className = 'card skeleton-card';
+        skeleton.innerHTML = `
+        <div class="skeleton thumbnail"></div>
+        <div class="skeleton text-line short"></div>
+        <div class="skeleton text-line"></div>
+      `;
+        galleryContainer.appendChild(skeleton);
+    }
+}
+
+function preloadImages(sources, callback) {
+    let loaded = 0;
+    const total = sources.length;
+
+    sources.forEach((src) => {
+        const img = new Image();
+        img.src = src;
+        img.onload = () => {
+            loaded++;
+            if (loaded === total) callback();
+        };
+        img.onerror = () => {
+            loaded++; // still count it to avoid infinite waiting
+            if (loaded === total) callback();
+        };
+    });
+}
+
+function renderGallery() {
+    galleryContainer.innerHTML = ""; // 💥 this line clears skeletons
+    imageSources.forEach((src, index) => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.innerHTML = `
+          <img src="${src}" data-index="${index}" loading="lazy" />
+          <p>Image ${index + 1} details</p>
+        `;
+
+     
+
+        galleryContainer.appendChild(card);
+    });
+}
+
+// 👇 Show skeletons immediately
+showSkeletons(imageSources.length);
+
+// 👇 Load real images only after they’re all ready
+preloadImages(imageSources, renderGallery);
+
 // Dynamically create cards
-imageSources.forEach((src, index) => {
-    const card = document.createElement('div');
-    card.classList.add('card');
-    card.innerHTML = `
-  <img src="${src}" data-index="${index}" loading="lazy" />
-    <p>Image ${index + 1} details</p>
-  `;
-    galleryContainer.appendChild(card);
-});
+// imageSources.forEach((src, index) => {
+//     const card = document.createElement('div');
+//     card.classList.add('card');
+//     card.innerHTML = `
+//   <img src="${src}" data-index="${index}" loading="lazy" />
+//     <p>Image ${index + 1} details</p>
+//   `;
+//     galleryContainer.appendChild(card);
+// });
 
 let currentIndex = 0;
 
