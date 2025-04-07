@@ -33,6 +33,7 @@ body {
     gap: 20px;
     margin: 0;
     padding: 0;
+    align-items: center;
 }
 
 .nav-links li a {
@@ -267,4 +268,30 @@ body.dark-mode .hamburger span {
     100% {
       left: 100%;
     }
+  }
+
+
+
+  /* dark mode things */
+  .theme-toggle {
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    /* padding: 6px 12px; */
+    transition: all 0.3s ease;
+  }
+  
+  .theme-toggle i {
+    margin-right: 6px;
+  }
+  
+  .theme-toggle:hover {
+    color: #007bff;
+  }
+  
+  body.dark-mode .theme-toggle {
+    color: #eee;
   }

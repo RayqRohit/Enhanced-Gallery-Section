@@ -166,3 +166,24 @@ function navigateModal(direction) {
     currentIndex = (currentIndex + direction + imageSources.length) % imageSources.length;
     showModal(currentIndex);
 }
+
+
+// Darkmode toggle scripts
+const themeToggle = document.getElementById('themeToggle');
+
+// Load theme preference
+if (localStorage.getItem('theme') === 'dark') {
+  document.body.classList.add('dark-mode');
+  themeToggle.innerHTML = '<i class="fas fa-sun"></i> Light';
+}
+
+// Toggle dark/light
+themeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  const isDark = document.body.classList.contains('dark-mode');
+  themeToggle.innerHTML = isDark
+    ? '<i class="fas fa-sun"></i>'
+    : '<i class="fas fa-moon"></i>';
+
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+});
