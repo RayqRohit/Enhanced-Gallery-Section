@@ -6,7 +6,7 @@ const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 
 const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('navLinks');
+const navLinks = document.getElementById('navLinks');   
 
 
 const imageSources = [];
@@ -187,3 +187,9 @@ themeToggle.addEventListener('click', () => {
 
   localStorage.setItem('theme', isDark ? 'dark' : 'light');
 });
+
+
+
+// dropdown is not working
+
+

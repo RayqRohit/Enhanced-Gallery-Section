@@ -64,7 +64,7 @@ body.dark-mode .logo {
 
 .gallery-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 16px;
     padding: 20px;
 }
@@ -186,7 +186,7 @@ body.nav-open {
         margin: 10px 0;
     }
 
-    .nav-links li a{
+    .nav-links li a {
         font-size: 20px;
     }
 
@@ -201,6 +201,8 @@ body.nav-open {
     .hamburger.active span:nth-child(3) {
         transform: rotate(-45deg) translate(6px, -6px);
     }
+
+    
 }
 
 /* Dark mode compatibility */
@@ -223,16 +225,16 @@ body.dark-mode .hamburger span {
 /* Skeleton Loader */
 .skeleton-card {
     animation: pulse 1s infinite ease-in-out;
-  }
-  
-  .skeleton {
+}
+
+.skeleton {
     background-color: #ddd;
     border-radius: 6px;
     position: relative;
     overflow: hidden;
-  }
-  
-  .skeleton::after {
+}
+
+.skeleton::after {
     content: "";
     position: absolute;
     top: 0;
@@ -241,39 +243,40 @@ body.dark-mode .hamburger span {
     height: 100%;
     background: linear-gradient(to right, transparent 0%, #ffffff50 50%, transparent 100%);
     animation: shimmer 1.2s infinite;
-  }
-  
-  /* Skeleton structure */
-  .thumbnail {
+}
+
+/* Skeleton structure */
+.thumbnail {
     width: 100%;
     height: 200px;
     margin-bottom: 12px;
-  }
-  
-  .text-line {
+}
+
+.text-line {
     height: 12px;
     width: 100%;
     margin-bottom: 8px;
-  }
-  
-  .text-line.short {
+}
+
+.text-line.short {
     width: 60%;
-  }
-  
-  /* Animations */
-  @keyframes shimmer {
+}
+
+/* Animations */
+@keyframes shimmer {
     0% {
-      left: -150px;
+        left: -150px;
     }
+
     100% {
-      left: 100%;
+        left: 100%;
     }
-  }
+}
 
 
 
-  /* dark mode things */
-  .theme-toggle {
+/* dark mode things */
+.theme-toggle {
     background: none;
     border: none;
     font-size: 16px;
@@ -282,16 +285,18 @@ body.dark-mode .hamburger span {
     cursor: pointer;
     /* padding: 6px 12px; */
     transition: all 0.3s ease;
-  }
-  
-  .theme-toggle i {
+}
+
+.theme-toggle i {
     margin-right: 6px;
-  }
-  
-  .theme-toggle:hover {
+}
+
+.theme-toggle:hover {
     color: #007bff;
-  }
-  
-  body.dark-mode .theme-toggle {
+}
+
+body.dark-mode .theme-toggle {
     color: #eee;
-  }
+}
+
+
